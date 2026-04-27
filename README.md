@@ -1,2 +1,0 @@
-# GrantIQue
-website for Grantique
