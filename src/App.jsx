@@ -53,11 +53,9 @@ function StatCard({ end, suffix, prefix, label }) {
   return (
     <div ref={ref} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
       style={{ textAlign: "center", padding: "48px 20px", cursor: "default", transition: "all 0.5s cubic-bezier(.22,1,.36,1)", transform: hovered ? "scale(1.06) translateY(-4px)" : "scale(1)", position: "relative" }}>
-      <div style={{ position: "absolute", inset: -1, borderRadius: 20, background: hovered ? "linear-gradient(135deg, rgba(10,186,181,0.08), rgba(43,58,103,0.05))" : "transparent", transition: "all 0.6s" }} />
       <div style={{
         fontFamily: "'Outfit'", fontSize: "clamp(42px, 5vw, 64px)", fontWeight: 900, letterSpacing: -2, lineHeight: 1, position: "relative",
-        background: hovered ? "linear-gradient(135deg, #0ABAB5, #2B3A67)" : "linear-gradient(135deg, #0ABAB5, #0ABAB5)",
-        WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+        color: "#0ABAB5",
         transition: "all 0.6s", filter: hovered ? "drop-shadow(0 0 20px rgba(10,186,181,0.3))" : "none",
       }}>{prefix || ""}{count}{suffix || ""}</div>
       <div style={{ fontFamily: "'Inter'", fontSize: 13, fontWeight: 600, letterSpacing: 3, textTransform: "uppercase", color: hovered ? "#0ABAB5" : "#999", marginTop: 14, position: "relative", transition: "all 0.5s" }}>{label}</div>
@@ -277,8 +275,7 @@ export default function App() {
       </section>
 
       {/* STATS */}
-      <section style={{ background: "linear-gradient(180deg, #F5F0EB, #F0ECE7)", position: "relative" }}>
-        <div style={{ position: "absolute", top: 0, left: "10%", right: "10%", height: 1, background: "linear-gradient(90deg, transparent, rgba(10,186,181,0.2), transparent)" }} />
+      <section style={{ background: "#F5F0EB", position: "relative" }}>
         <div style={{ maxWidth: 1300, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
           {[{ end: "150", suffix: "+", label: "Tamamlanan Proje" }, { end: "50", prefix: "€", suffix: "M+", label: "Oluşturulan Kaynak" }, { end: "98", suffix: "%", label: "Başarı Oranı" }, { end: "12", suffix: "+", label: "Yıllık Deneyim" }].map((s, i) => (
             <StatCard key={i} end={s.end} suffix={s.suffix} prefix={s.prefix || ""} label={s.label} />
